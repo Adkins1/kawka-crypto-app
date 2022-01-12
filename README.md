@@ -1,5 +1,7 @@
 ### Projekt kawka-crypto-app ###
 
+made for learning purposes ;)
+
  [https://kawka-crypto-app.netlify.app](https://kawka-crypto-app.netlify.app) 
 
 This project use technologies below:
@@ -12,5 +14,3 @@ and also few smaller libraries to make it easier to work with dates and numbers:
 * `html-react-parser`
 * `moment`
 * `numeral`
-
- [http://localhost:3000](http://localhost:3000) 
