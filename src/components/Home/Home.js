@@ -14,7 +14,6 @@ import CryptoNews from '../CryptoNews/CryptoNews'
 import { useGetCryptosQuery } from '../../services/cryptoApi'
 
 const Home = () => {
-
     const { data, isFetching } = useGetCryptosQuery(10)
     const globalStats = data?.data?.stats
 
