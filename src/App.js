@@ -13,9 +13,9 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path='/' element={<Homepage />} />
-        <Route exact path='/cryptocurrencies' element={<Cryptocurrencies />} />
-        <Route exact path='/crypto/:coinId' element={<Cryptocurrency />} />
-        <Route exact path="/news" element={<News />} />
+        <Route exact path='/#/cryptocurrencies' element={<Cryptocurrencies />} />
+        <Route exact path='/#/crypto/:coinId' element={<Cryptocurrency />} />
+        <Route exact path="/#/news" element={<News />} />
       </Routes>
       <Footer />
     </>
