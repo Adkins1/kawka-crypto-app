@@ -17,7 +17,6 @@ import {
 import { useGetCryptoNewsQuery } from '../../services/cryptoNewsApi'
 import { useGetCryptosQuery } from '../../services/cryptoApi'
 
-
 const demoImage = 'https://public.bnbstatic.com/image/cms/blog/20210204/3683a369-8278-486f-bb96-dabde2e5c025.jpg'
 
 const CryptoNews = ({ simplified }) => {
