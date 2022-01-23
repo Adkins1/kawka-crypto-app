@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { Link as LinkR } from "react-router-dom";
-import { color, maxDevice } from "../variables";
+import { maxDevice } from "../variables";
 
 export const GridRow = styled.div`
     padding: 40px;

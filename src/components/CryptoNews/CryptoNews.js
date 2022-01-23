@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import moment from 'moment'
-import numeral from 'numeral'
 import {
     Container,
     GridRow,
