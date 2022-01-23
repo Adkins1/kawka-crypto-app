@@ -36,7 +36,7 @@ const Crypto = ({ simplified }) => {
             <GridRow columns={4} gap={40}>
                 {
                     cryptos?.map((coin, i) => (
-                        <Container key={i} to={`/crypto/${coin.uuid}`}>
+                        <Container key={i} to={`/#/crypto/${coin.uuid}`}>
                             <Header>
                                 <Paragraph bold>{coin.rank}. {coin.name}</Paragraph>
                                 <Image src={coin.iconUrl}></Image>

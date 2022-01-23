@@ -94,8 +94,6 @@ const CryptoDetails = () => {
                 <Row>
                     <LineChart
                         coinHistory={coinHistory}
-                        currentPrice={cryptoDetails?.price}
-                        coinName={cryptoDetails?.name}
                     />
                 </Row>
                 <Row>

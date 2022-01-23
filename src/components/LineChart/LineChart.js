@@ -7,17 +7,18 @@ import {
     Row
 } from './LineChartStyles';
 
-const LineChart = ({ coinHistory, currentPrice, coinName }) => {
+const LineChart = ({ coinHistory }) => {
 
     const coinPrice = []
     const coinTimestamp = []
 
-    for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-        coinPrice.push(coinHistory?.data?.history[i].price);
+    for (let i = coinHistory?.data?.history?.length-1; i >= 0 ; i -= 1) {
+        coinPrice.push(coinHistory?.data?.history[i]?.price);
     }
-    for (let i = 0; i < coinHistory?.data?.history?.length; i += 1) {
-        coinTimestamp.push(moment.unix(coinHistory?.data?.history[i].timestamp).format('YYYY-MM-DD'))
+    for (let i = coinHistory?.data?.history?.length-1; i >= 0; i -= 1) {
+        coinTimestamp.push(moment.unix(coinHistory?.data?.history[i]?.timestamp).format('YYYY-MM-DD'))
     }
+    console.log(coinTimestamp)
     const data = {
         labels: coinTimestamp,
         datasets: [

@@ -40,8 +40,8 @@ const Navbar = () => {
                 </LogoLink>
                 <Links showMenu={showMenu}>
                     <Link to='/' onClick={changeNav}><AiFillHome />Home</Link>
-                    <Link to='/cryptocurrencies' onClick={changeNav}><GrBitcoin />Cryptocurrencies</Link>
-                    <Link to='/news' onClick={changeNav}><IoNewspaperSharp />News</Link>
+                    <Link to='/#/cryptocurrencies' onClick={changeNav}><GrBitcoin />Cryptocurrencies</Link>
+                    <Link to='/#/news' onClick={changeNav}><IoNewspaperSharp />News</Link>
                 </Links>
                 <Hamburger onClick={changeNav} ><GiHamburgerMenu /></Hamburger>
             </Container>
