@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { color } from "../variables";
+import { color, maxDevice } from "../variables";
 
 export const Container = styled.div`
     width: 100%;
@@ -12,6 +12,9 @@ export const Wrapper = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    @media screen and (${maxDevice.laptop}) {
+        width: 100%;
+    }
 `
 export const Row = styled.div`
     width: 100%;
@@ -31,16 +34,34 @@ export const SubDetails = styled.div`
     display: flex;
     justify-content: center;
     padding: 50px 0 50px 0;
+    @media screen and (${maxDevice.laptop}) {
+        width: 90%;
+    }
 `
 export const Col = styled.div`
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    svg{
+        font-size: 2rem;
+    }
 `
 export const Title = styled.div`
     font-size: ${({ fontSize }) => fontSize ? fontSize+"rem" : "1rem"};
     font-weight: 900;
+    height: 100px;
+`
+export const StatsRow = styled.div`
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100px;
 `
 export const Paragraph = styled.div`
-    padding: 5px 0 5px 0;
+    font-weight: ${({ bold }) => bold ? 900 : "normal"};
 `
 export const Image = styled.img`
     width: 200px;

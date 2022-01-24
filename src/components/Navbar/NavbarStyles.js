@@ -6,7 +6,7 @@ export const Container = styled.div`
     position: relative;
     padding: 0 10px 0 10px;
     width: 100%;
-    height: ${({ showMenu }) => showMenu ? "100vh" : "10vh"};
+    height: ${({ showMenu }) => showMenu ? "100vh" : "8vh"};
     flex-direction: ${({ showMenu }) => showMenu ? "column" : "row"};
     display: flex;
     justify-content: flex-start;
@@ -89,6 +89,10 @@ export const Hamburger = styled.div`
         :hover{
             transform: scale(110%);
             transition: .2s;
+        }
+        @media screen and (${maxDevice.laptop}) {
+            top: 15px;
+            right: 15px;
         }
     }
 `

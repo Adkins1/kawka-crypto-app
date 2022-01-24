@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { maxDevice } from "../variables";
 
 export const Container = styled.div`
     width: 100%;
@@ -7,5 +8,7 @@ export const Container = styled.div`
 `
 export const Row = styled.div`
     width: 80%;
-
+    @media screen and (${maxDevice.mobileL}) {
+        width: 100%;
+    }
 `

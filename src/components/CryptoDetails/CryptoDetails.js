@@ -2,6 +2,11 @@ import React, { useState } from 'react'
 import HTMLReactParser from 'html-react-parser'
 import numeral from 'numeral'
 import { HiCurrencyDollar } from 'react-icons/hi'
+import { AiOutlineFieldNumber } from 'react-icons/ai'
+import { BsFillCapslockFill, BsArrowRepeat, BsQuestionDiamond } from 'react-icons/bs'
+import { GiConfirmed, GiRank3, GiBallPyramid } from 'react-icons/gi'
+import { Ri24HoursLine, RiLandscapeFill } from 'react-icons/ri'
+import { ImCross } from 'react-icons/im'
 import { useParams } from 'react-router-dom'
 import {
     Container,
@@ -16,7 +21,8 @@ import {
     Details,
     SubDetails,
     Select,
-    Description
+    Description,
+    StatsRow
 } from './CryptoDetailsStyles'
 //import LineChart from './LineChart'
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../../services/cryptoApi'
@@ -34,18 +40,18 @@ const CryptoDetails = () => {
 
     const stats = [
         { title: 'Price to USD', value: `$ ${cryptoDetails?.price && numeral(cryptoDetails?.price).format('0.0a')}`, icon: <HiCurrencyDollar /> },
-        { title: 'Rank', value: cryptoDetails?.rank, icon: <HiCurrencyDollar /> },
-        { title: '24h Volume', value: `$ ${cryptoDetails?.volume && numeral(cryptoDetails?.volume).format('0.0a')}`, icon: <HiCurrencyDollar /> },
-        { title: 'Market Cap', value: `$ ${cryptoDetails?.marketCap && numeral(cryptoDetails?.marketCap).format('0.0a')}`, icon: <HiCurrencyDollar /> },
-        { title: 'All-time-high(daily avg.)', value: `$ ${cryptoDetails?.allTimeHigh?.price && numeral(cryptoDetails?.allTimeHigh?.price).format('0.0a')}`, icon: <HiCurrencyDollar /> },
+        { title: 'Rank', value: cryptoDetails?.rank, icon: <GiRank3 /> },
+        { title: '24h Volume', value: `$ ${cryptoDetails?.volume && numeral(cryptoDetails?.volume).format('0.0a')}`, icon: <Ri24HoursLine /> },
+        { title: 'Market Cap', value: `$ ${cryptoDetails?.marketCap && numeral(cryptoDetails?.marketCap).format('0.0a')}`, icon: <RiLandscapeFill /> },
+        { title: 'All-time-high(daily avg.)', value: `$ ${cryptoDetails?.allTimeHigh?.price && numeral(cryptoDetails?.allTimeHigh?.price).format('0.0a')}`, icon: <BsFillCapslockFill /> },
     ];
 
     const otherStats = [
-        { title: 'Number Of Markets', value: cryptoDetails?.numberOfMarkets, icon: <HiCurrencyDollar /> },
+        { title: 'Number Of Markets', value: cryptoDetails?.numberOfMarkets, icon: <AiOutlineFieldNumber /> },
         { title: 'Number Of Exchanges', value: cryptoDetails?.numberOfExchanges, icon: <HiCurrencyDollar /> },
-        { title: 'Aprroved Supply', value: cryptoDetails?.supply?.confirmed ? <HiCurrencyDollar /> : <HiCurrencyDollar />, icon: <HiCurrencyDollar /> },
-        { title: 'Total Supply', value: `$ ${cryptoDetails?.supply?.total && numeral(cryptoDetails?.supply?.total).format('0.0a')}`, icon: <HiCurrencyDollar /> },
-        { title: 'Circulating Supply', value: `$ ${cryptoDetails?.supply?.circulating && numeral(cryptoDetails?.supply?.circulating).format('0.0a')}`, icon: <HiCurrencyDollar /> },
+        { title: 'Aprroved Supply', value: cryptoDetails?.supply?.confirmed ? <GiConfirmed style={{ color: 'green'}} /> : <ImCross style={{ color: 'red'}}/>, icon: <BsQuestionDiamond /> },
+        { title: 'Total Supply', value: `$ ${cryptoDetails?.supply?.total && numeral(cryptoDetails?.supply?.total).format('0.0a')}`, icon: <GiBallPyramid /> },
+        { title: 'Circulating Supply', value: `$ ${cryptoDetails?.supply?.circulating && numeral(cryptoDetails?.supply?.circulating).format('0.0a')}`, icon: <BsArrowRepeat /> },
     ];
 
     if (isFetching) return 'Loading...'
@@ -56,7 +62,7 @@ const CryptoDetails = () => {
                 <Row>
                     <Details>
                         <Title fontSize={2}>{cryptoDetails?.name} ({cryptoDetails?.symbol}) Price</Title>
-                        <Image src={cryptoDetails.iconUrl}/>
+                        <Image src={cryptoDetails.iconUrl} />
                         <Title fontSize={1.5}>Price: {numeral(cryptoDetails?.price).format("0.0")}$</Title>
                     </Details>
                 </Row>
@@ -65,16 +71,24 @@ const CryptoDetails = () => {
                         <Col>
                             <Title fontSize={1.5}>{cryptoDetails?.name} Value Statistics</Title>
                             {
-                                stats.map(({ icon, title, value}, i) => (
-                                    <Paragraph key={i}>{icon}{title}: {value}</Paragraph>
+                                stats.map(({ icon, title, value }, i) => (
+                                    <StatsRow key={i}>
+                                        <Paragraph>{icon}</Paragraph>
+                                        <Paragraph>{title}</Paragraph>
+                                        <Paragraph bold>{value}</Paragraph>
+                                    </StatsRow>
                                 ))
                             }
                         </Col>
                         <Col>
                             <Title fontSize={1.5}>Other Statistics</Title>
                             {
-                                otherStats.map(({ icon, title, value}, i) => (
-                                    <Paragraph key={i}>{icon}{title}: {value}</Paragraph>
+                                otherStats.map(({ icon, title, value }, i) => (
+                                    <StatsRow key={i}>
+                                        <Paragraph>{icon}</Paragraph>
+                                        <Paragraph>{title}</Paragraph>
+                                        <Paragraph bold>{value}</Paragraph>
+                                    </StatsRow>
                                 ))
                             }
                         </Col>
@@ -82,13 +96,13 @@ const CryptoDetails = () => {
                 </Row>
                 <Row>
                     <Options>
-                            <Select defaultValue="7d" onChange={e => setTimePeriod(e.target.value)}>
-                                {
-                                    time.map((date) => (
-                                        <Option key={date}>{date}</Option>
-                                    ))
-                                }
-                            </Select>
+                        <Select defaultValue="7d" onChange={e => setTimePeriod(e.target.value)}>
+                            {
+                                time.map((date) => (
+                                    <Option key={date}>{date}</Option>
+                                ))
+                            }
+                        </Select>
                     </Options>
                 </Row>
                 <Row>
@@ -105,7 +119,7 @@ const CryptoDetails = () => {
                             <Description>
                                 {
                                     cryptoDetails?.description && HTMLReactParser(cryptoDetails?.description)
-                                }  
+                                }
                             </Description>
                         </Col>
                         <Col>
@@ -120,7 +134,7 @@ const CryptoDetails = () => {
                                             <a href={link.url}>{link.name}</a>
                                         </div>
                                     ))
-                                }        
+                                }
                             </Description>
                         </Col>
                     </SubDetails>

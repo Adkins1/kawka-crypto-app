@@ -56,4 +56,16 @@ export const Input = styled.input`
     font-size: 1.2rem;
     height: 2rem;
     min-width: 300px;
+    @media screen and (${maxDevice.laptop}) {
+        margin: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+`
+export const InputContainer = styled.div`
+    width: 100%;
+    min-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `

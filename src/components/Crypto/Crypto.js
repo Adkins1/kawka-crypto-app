@@ -7,7 +7,8 @@ import {
     Image,
     Body,
     GridRow,
-    Input
+    Input,
+    InputContainer
 } from './CryptoStyles'
 
 import { useGetCryptosQuery } from '../../services/cryptoApi'
@@ -30,7 +31,9 @@ const Crypto = ({ simplified }) => {
         <>
             {
                 !simplified && (
+                <InputContainer>
                     <Input placeholder='Search Cryptocurrency' onChange={e => setSearchTerm(e.target.value)} />
+                </InputContainer>
                 )
             }
             <GridRow columns={4} gap={40}>
