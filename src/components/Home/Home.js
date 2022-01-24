@@ -26,15 +26,15 @@ const Home = () => {
             </TitleRow>
             <GridRow columns={2} gap={10}>
                 <Title fontSize={1} col={1} row={1}>Total number of Cryptocurrencies</Title>
-                <Paragraph fontSize={1.5} col={1} row={2}>{numeral(globalStats.total).format('0.0a')}</Paragraph>
+                <Paragraph fontSize={1.5} col={1} row={2}>{numeral(globalStats?.total).format('0.0a')}</Paragraph>
                 <Title fontSize={1} col={1} row={3}>Total Market Cap</Title>
-                <Paragraph fontSize={1.5} col={1} row={4}>{numeral(globalStats.totalMarketCap).format('0.0a')}$</Paragraph>
+                <Paragraph fontSize={1.5} col={1} row={4}>{numeral(globalStats?.totalMarketCap).format('0.0a')}$</Paragraph>
                 <Title fontSize={1} col={1} row={5}>Total Markets</Title>
-                <Paragraph fontSize={1.5} col={1} row={6}>{numeral(globalStats.totalMarkets).format('0.0a')}</Paragraph>
+                <Paragraph fontSize={1.5} col={1} row={6}>{numeral(globalStats?.totalMarkets).format('0.0a')}</Paragraph>
                 <Title fontSize={1} col={2} row={1}>Total Exchanges</Title>
-                <Paragraph fontSize={1.5} col={2} row={2}>{numeral(globalStats.totalExchanges).format('0.0a')}</Paragraph>
+                <Paragraph fontSize={1.5} col={2} row={2}>{numeral(globalStats?.totalExchanges).format('0.0a')}</Paragraph>
                 <Title fontSize={1} col={2} row={3}>Total 24h Volume</Title>
-                <Paragraph fontSize={1.5} col={2} row={4}>{numeral(globalStats.total24hVolume).format('0.0a')}$</Paragraph>
+                <Paragraph fontSize={1.5} col={2} row={4}>{numeral(globalStats?.total24hVolume).format('0.0a')}$</Paragraph>
             </GridRow>
             <TitleRow> 
                 <Title fontSize={2}>Top 10 Crytpocurrencies</Title>
