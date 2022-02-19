@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { Link as LinkR } from "react-router-dom"
-import { color, maxDevice } from "../variables"
+import { color, maxWidthDevice } from "../variables"
 
 export const Container = styled.div`
   position: relative;
@@ -12,7 +12,7 @@ export const Container = styled.div`
   justify-content: flex-start;
   flex-wrap: nowrap;
   background: ${color.darkBlue};
-  @media screen and (${maxDevice.tablet}) {
+  @media screen and (${maxWidthDevice.tablet}) {
     align-items: center;
   }
   @media (orientation: landscape) {
@@ -26,7 +26,7 @@ export const LogoLink = styled(LinkR)`
   :hover {
     background: ${color.darkBlueHover};
   }
-  @media screen and (${maxDevice.tablet}) {
+  @media screen and (${maxWidthDevice.tablet}) {
     width: 30%;
     height: ${({ showMenu }) => (showMenu ? "40%" : "100%")};
   }
@@ -45,12 +45,12 @@ export const Links = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  @media screen and (${maxDevice.tablet}) {
+  @media screen and (${maxWidthDevice.tablet}) {
     width: 100%;
     flex-direction: column;
   }
   a {
-    @media screen and (${maxDevice.tablet}) {
+    @media screen and (${maxWidthDevice.tablet}) {
       display: ${({ showMenu }) => (showMenu ? "flex" : "none")};
       width: 100%;
       font-size: 2rem;
@@ -74,7 +74,7 @@ export const Link = styled(LinkR)`
   svg {
     font-size: 1.2em;
   }
-  @media screen and (${maxDevice.laptop}) {
+  @media screen and (${maxWidthDevice.laptop}) {
     font-size: 1rem;
     width: 30%;
   }
@@ -82,7 +82,7 @@ export const Link = styled(LinkR)`
 export const Hamburger = styled.div`
   display: none;
 
-  @media screen and (${maxDevice.tablet}) {
+  @media screen and (${maxWidthDevice.tablet}) {
     display: block;
     position: absolute;
     top: 30px;
@@ -95,7 +95,7 @@ export const Hamburger = styled.div`
       transform: scale(110%);
       transition: 0.2s;
     }
-    @media screen and (${maxDevice.laptop}) {
+    @media screen and (${maxWidthDevice.laptop}) {
       top: 15px;
       right: 15px;
     }

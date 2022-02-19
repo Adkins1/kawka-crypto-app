@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { color, maxDevice } from "../variables"
+import { color, maxWidthDevice } from "../variables"
 import { Link as LinkR } from "react-router-dom"
 
 export const Container = styled.div`
@@ -9,6 +9,9 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media (orientation: landscape) {
+    height: 100vh;
+  }
   @media (orientation: landscape) {
     height: 100vh;
   }
@@ -26,7 +29,7 @@ export const Links = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  @media screen and (${maxDevice.tablet}) {
+  @media screen and (${maxWidthDevice.tablet}) {
     width: 100%;
     align-items: center;
   }
@@ -42,7 +45,7 @@ export const Link = styled(LinkR)`
     transition: 0.2s;
     background: ${color.darkBlueHover};
   }
-  @media screen and (${maxDevice.tablet}) {
+  @media screen and (${maxWidthDevice.tablet}) {
     font-size: 1rem;
 
     :hover {
@@ -55,7 +58,7 @@ export const Media = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  @media screen and (${maxDevice.tablet}) {
+  @media screen and (${maxWidthDevice.tablet}) {
     width: 100%;
     justify-content: center;
   }
@@ -67,7 +70,7 @@ export const Row = styled.div`
   justify-content: center;
   align-items: center;
   gap: 50px;
-  @media screen and (${maxDevice.tablet}) {
+  @media screen and (${maxWidthDevice.tablet}) {
     flex-direction: column;
     gap: 0;
   }
@@ -80,7 +83,7 @@ export const Header = styled.div`
   align-items: center;
   font-weight: 900;
   color: ${color.white};
-  @media screen and (${maxDevice.tablet}) {
+  @media screen and (${maxWidthDevice.tablet}) {
     font-size: 1rem;
   }
 `
@@ -93,6 +96,9 @@ export const MediaLink = styled.a`
   :hover {
     transition: 0.2s;
     background: ${color.darkBlueHover};
+  }
+  @media screen and (${maxWidthDevice.tablet}) {
+    font-size: 1rem;
   }
 `
 export const Logo = styled.img`
